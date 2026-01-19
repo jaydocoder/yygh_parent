@@ -29,7 +29,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/cmn")
-@CrossOrigin
 public class DictController {
 
 

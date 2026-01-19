@@ -3,6 +3,8 @@ package com.atguigu.yygh.hosp.repository;
 import com.atguigu.yygh.model.hosp.Department;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.List;
+
 /*************************************************
  时间: 2022-05-27
  讲师: 刘  辉
@@ -10,6 +12,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  **************************************************/
 public interface DepartmentRepository  extends MongoRepository<Department,String> {
     Department findByHoscodeAndDepcode(String hoscode, String depcode);
+
     // 在DepartmentRepository接口中添加
     Long deleteByHoscodeAndDepcode(String hoscode, String depcode);
 

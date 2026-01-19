@@ -1,0 +1,26 @@
+server:
+    port: 8222
+spring:
+    application:
+        name: service-gateway
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+            routes:
+            -   id: service-hosp1
+                predicates: Path=/*/hospital/**
+                uri: lb://service-hosp
+            -   id: service-hosp2
+                predicates: Path=/*/hosp/**
+                uri: lb://service-hosp
+            -   id: service-hosp3
+                predicates: Path=/*/user/**
+                uri: lb://service-hosp
+            -   id: service-cmn
+                predicates: Path=/*/cmn/**
+                uri: lb://service-cmn
+        nacos:
+            discovery:
+                server-addr: 192.168.150.128:8848

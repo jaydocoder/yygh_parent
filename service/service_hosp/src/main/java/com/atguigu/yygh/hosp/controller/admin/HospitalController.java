@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 ======================================================*/
 @RestController
 @RequestMapping("/admin/hospital")
-@CrossOrigin
 public class HospitalController {
 
     @Autowired
@@ -28,5 +27,17 @@ public class HospitalController {
         Page<Hospital> hospitalPage= hospitalService.getHospitalPage(pageNum,pageSize,hospitalQueryVo);
 
         return R.ok().data("total",hospitalPage.getTotalElements()).data("list",hospitalPage.getContent());
+    }
+    @PutMapping("/updateStatus/{id}/{status}")
+    public R updateStatus(@PathVariable String id,@PathVariable Integer status){
+        Hospital hospital=new Hospital();
+        hospital.setStatus(status);
+        hospitalService.updateById(id,hospital);
+        return R.ok();
+    }
+    @GetMapping("/getHospitalById/{id}")
+    public R getHospitalById(@PathVariable String id){
+        Hospital hospital=hospitalService.getHospitalById(id);
+        return R.ok().data("hospital",hospital);
     }
 }

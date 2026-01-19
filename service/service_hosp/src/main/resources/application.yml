@@ -1,0 +1,25 @@
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+    port: 8201
+spring:
+    application:
+        name: service-hosp
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 192.168.150.128:8848
+    data:
+        mongodb:
+            uri: mongodb://192.168.150.128:27017/test
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: Y123456j
+        url: jdbc:mysql://192.168.150.128:3306/yygh_hosp?characterEncoding=utf-8&useSSL=false
+        username: root
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+    profiles:
+        active: dev

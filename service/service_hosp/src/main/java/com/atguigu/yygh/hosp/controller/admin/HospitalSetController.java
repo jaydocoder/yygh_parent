@@ -26,7 +26,6 @@ import java.util.Random;
 @Api(tags = "医院设置信息")
 @RequestMapping("/admin/hosp/hospitalSet")
 @Slf4j
-@CrossOrigin
 public class HospitalSetController {
 
     @Autowired
